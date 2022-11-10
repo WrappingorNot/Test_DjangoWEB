@@ -21,4 +21,19 @@ class Choice(models.Model):
      
      def __str__(self):
           return self.choice_text
-          
+
+class TestModel1(models.Model):
+    type_str = models.CharField(max_length=100)
+    type_int = models.IntegerField()
+    type_bool = models.BooleanField()
+
+
+class TestModel2(models.Model):
+    type_str = models.CharField(max_length=100)
+    type_for = models.ForeignKey(
+        'TestModel1',
+        on_delete=models.CASCADE
+    )
+
+
+

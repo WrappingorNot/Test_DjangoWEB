@@ -32,12 +32,16 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "app_default.apps.AppDefaultConfig",
+    "drf_yasg",
+    "rest_framework",
+    "rest_framework_swagger",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+   
 ]
 
 MIDDLEWARE = [
