@@ -11,11 +11,11 @@ app_name = 'app_default'
 urlpatterns = [
  
      #ex: /app_default/
-     path('', views.index, name='index'),
+     path('', views.IndexView.as_view(), name='index'),
      #ex: /app_default/5/
-     path('<int:question_id>/', views.detail, name='detail'),
+     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
      #ex: app_default/5/result/
-     path('<int:question_id>/results/',views.results, name='results'),
+     path('<int:pk>/results/',views.ResultView.as_view(), name='results'),
      #ex: /app_default/5/vote/
      path('<int:question_id>/vote/',views.vote, name='vote')
 ]
@@ -33,7 +33,7 @@ schema_view = get_schema_view(
    permission_classes=(permissions.AllowAny,),
 )
 
-urlpatterns = [
+urlpatterns += [
    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
    #본인은 해당 swagger ui를 사용할 것이다.
    re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
