@@ -1,12 +1,34 @@
+import json
+
 from django.shortcuts import render
-from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404
 from .models import Question, Choice
-
+from rest_framework import  generics
+from .serializers import QuestionSerializer
+from rest_framework.views import APIView
 
 # Create your views here.
 
+
+class ReservationListView(APIView):
+     def post(self, request):
+          data = json.loads(request.body)
+          
+          serializer = QuestionSerializer(data=data)
+          if serializer.is_valid():
+               serializer.save()
+               return JsonResponse(serializer.data, status=201)
+          else:
+               return  JsonResponse(serializer.errors, status=404)
+          
+     def get(self, request):
+          reservation = Question.objrcts.all()
+          serializer = QuestionSerializer(reservation, many=True)
+          
+          return JsonResponse({'data':serializer.data}, status=200)
+     
 def index(request):
      
      latest_question_list = Question.objects.order_by('-pub_date')[:5]
