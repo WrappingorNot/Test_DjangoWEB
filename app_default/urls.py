@@ -1,10 +1,10 @@
-from django.template.defaulttags import url
+from django.conf.urls import include
 from django.urls import path, re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from . import views
-
+from .views import ReservationListView
 
 app_name = 'app_default'
 
@@ -17,7 +17,8 @@ urlpatterns = [
      #ex: app_default/5/result/
      path('<int:pk>/results/',views.ResultView.as_view(), name='results'),
      #ex: /app_default/5/vote/
-     path('<int:question_id>/vote/',views.vote, name='vote')
+     path('<int:question_id>/vote/',views.vote, name='vote'),
+     path('serializer/',ReservationListView.as_view(), name='serializer'),
 ]
 
 schema_view = get_schema_view(

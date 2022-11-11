@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <h1>{{ quesrion.question_text }}</h1>
+
+</head>
+<body>
+<h1>{{ quesrion.question_text }}</h1>
 
     <ul>
         {% for choice in question.choice_set.all %}
@@ -13,9 +16,6 @@
     </ul>
 
     <a href="{% url 'app_default' quesrion.id %}">Vote again?</a>
-</head>
-<body>
-
 
 
 </body>

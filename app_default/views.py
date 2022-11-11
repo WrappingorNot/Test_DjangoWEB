@@ -5,7 +5,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonRespons
 from django.template import loader
 from django.shortcuts import get_object_or_404
 from .models import Question, Choice
-from rest_framework import  generics
+from rest_framework import  generics,permissions
 from .serializers import QuestionSerializer
 from rest_framework.views import APIView
 from django.views import generic
@@ -14,6 +14,7 @@ from django.views import generic
 
 
 class ReservationListView(APIView):
+     permission_classes = [permissions.AllowAny]
      def post(self, request):
           data = json.loads(request.body)
           
