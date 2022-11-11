@@ -22,4 +22,5 @@ urlpatterns = [
     path('app_default/',include('app_default.urls')),
     #path('api/doc/', get_swagger_view(title='API Manual')),
     path("admin/", admin.site.urls),
+    path('bookmark/', include('bookmark.urls')),
 ]
