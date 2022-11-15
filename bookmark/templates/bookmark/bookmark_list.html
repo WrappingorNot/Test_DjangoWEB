@@ -6,7 +6,7 @@
 </head>
 <body>
   <div class="btn_-group">
-    <a href="#" class="btn btn-info">Add Bookmark</a>
+    <a href="{% url 'add' %}" class="btn btn-info">Add Bookmark</a>
   </div>
   <p></p>
   <table class="table">
@@ -26,7 +26,7 @@
           <td>{{forloop.counter}}</td>
           <td><a href="#">{{bookmark.site_name}}</a></td>
           <td><a href="{% url 'detail' pk=bookmark.id  %}">{{bookmark.site_name}}</a></td>
-          <td><a href="#"class="btn btn-success btn-sm">Modify</a></td>
+          <td><a href="{% url 'update' pk=bookmark.id %}"class="btn btn-success btn-sm">Modify</a></td>
           <td><a href="#"class="btn btn-danger btn-sm">Delete</a></td>
         </tr>
     {% endfor %}
