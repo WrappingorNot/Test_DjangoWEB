@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
+  {% extends 'base.html' %}
+
+  {% block title %}
+  Bookmark List
+  {% endblock %}
+
+  {% block content %}
+
   <div class="btn_-group">
     <a href="{% url 'add' %}" class="btn btn-info">Add Bookmark</a>
   </div>
@@ -27,10 +35,11 @@
           <td><a href="#">{{bookmark.site_name}}</a></td>
           <td><a href="{% url 'detail' pk=bookmark.id  %}">{{bookmark.site_name}}</a></td>
           <td><a href="{% url 'update' pk=bookmark.id %}"class="btn btn-success btn-sm">Modify</a></td>
-          <td><a href="#"class="btn btn-danger btn-sm">Delete</a></td>
+          <td><a href="{% url 'delete' pk=bookmark.id %}"class="btn btn-danger btn-sm">Delete</a></td>
         </tr>
     {% endfor %}
     </tbody>
   </table>
+  {% endblock %}
 </body>
 </html>

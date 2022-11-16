@@ -1,12 +1,17 @@
 from django.shortcuts import render
 
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from .models import Bookmark
 
 # Create your views here.
+
+class BookmarkDeleteView(DeleteView):
+     model = Bookmark
+     success_url = reverse_lazy('list')
+     
 
 class BookmarkUpdateView(UpdateView):
      model = Bookmark
