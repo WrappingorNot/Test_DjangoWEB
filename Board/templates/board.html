@@ -27,8 +27,8 @@
                     <td>{{ board_list.title }}</td>
                     <td>{{ board_list.content }}</td>
                     <td>{{ board_list.writer }}</td>
-                    <td><button class="btn btn-secondary rounded-pill" onclick="location.href='/edit/{{board_list.pk}}'">수정</button></td>
-                    <td><button class="btn btn-danger rounded-pill" onclick="location.href='/delete/{{board_list.pk}}'">삭제</button></td>
+                    <td><button class="btn btn-secondary rounded-pill" onclick="location.href='edit/{{board_list.pk}}'">수정</button></td>
+                    <td><button class="btn btn-danger rounded-pill" onclick="location.href='delete/{{board_list.pk}}'">삭제</button></td>
                 </tr>
             </tbody>
             {% endfor %}
