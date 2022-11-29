@@ -12,3 +12,4 @@ h.update(passwd.encode('utf-8'))
 #해싱된 비밀번호
 h_passwd = h.digest()
 print(h_passwd)
+print("s")
