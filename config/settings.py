@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     "app_default.apps.AppDefaultConfig",
     "drf_yasg",
     "rest_framework",
-    "rest_framework_swagger",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "bookmark",
     "accounts",
+    "bootstrap4",
     
    
 ]
