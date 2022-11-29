@@ -28,4 +28,20 @@ def board(request):
 		}
 		return render(request, 'board.html', content)
 
+def boardEdit(request, pk):
+	board = Board.objects.get(id = pk)
+	if request.method == "POST":
+		board.title = request.POST['title']
+		board.content = request.POST['content']
+		board.writer = request.POST['writer']
 
+		board.save()
+		return redirect('board')
+	else:
+		boardForm = BoardForm
+		return render(request, 'update.html', {'boardForm':boardForm})
+
+def boardDelete(request, pk):
+    board = Board.objects.get(id=pk)
+    board.delete()
+    return redirect('board')
