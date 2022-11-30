@@ -11,8 +11,8 @@ def signup(request):
                     email=request.POST['email'], )
                auth.login(request, user)
                return redirect('/')
-          return render(request, 'signup.html')
-     return render(request, 'signup.html')
+          return render(request, 'home.html')
+     return render(request, 'home.html')
 
 def login(request):
      if request.method == 'POST':
