@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 def signup(request):
      if request.method == 'POST':
           if request.POST['password1'] == request.POST['password2']:
@@ -20,13 +21,17 @@ def login(request):
           user = auth.authenticate(request, username=username, password=password)
           if user is not None:
                auth.login(request, user)
-               return redirect('accounts/login.html')
+               return redirect('login.html')
           else:
-               return render(request, 'accounts/login.html')
+               return render(request, 'login.html')
      else:
-          return render(request, 'accounts/login.html')
+          return render(request, 'login.html')
 
 
 def logout(request):
      auth.logout(request)
-     return redirect('accounts/login.html')
+     return redirect('login.html')
+
+# home
+def home(request):
+    return render(request, 'home.html')
