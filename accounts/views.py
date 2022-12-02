@@ -10,7 +10,7 @@ def signup(request):
                     password=request.POST['password1'],
                     email=request.POST['email'], )
                auth.login(request, user)
-               return redirect('home/')
+               return redirect('/')
           return render(request, 'home.html')
      return render(request, 'home.html')
 
