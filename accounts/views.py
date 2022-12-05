@@ -32,6 +32,9 @@ def logout(request):
      auth.logout(request)
      return redirect('login.html')
 
+def initself(request):
+     pass
+
 # home
 def home(request):
     return render(request, 'home.html')
