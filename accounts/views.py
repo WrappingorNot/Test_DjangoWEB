@@ -14,6 +14,8 @@ def signup(request):
           return render(request, 'home.html')
      return render(request, 'home.html')
 
+
+
 def login(request):
      if request.method == 'POST':
           username = request.POST['username']
