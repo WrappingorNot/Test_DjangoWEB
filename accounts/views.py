@@ -36,7 +36,7 @@ def logout(request):
 
 def initself(request):
      pass
-# 여기 까지 하면
+# 여기 까지 하면   ㅇㅇ
 # home
 def home(request):
     return render(request, 'home.html')
